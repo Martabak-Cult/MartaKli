@@ -1,3 +1,8 @@
+package martabak.cult.martacli.cmd
+
+import Attribute
+import Config
+import Metadata
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.option
@@ -66,8 +71,8 @@ class Gen : CliktCommand(help = "Generate your NFT") {
     }
 
     private fun generateMetadata(i: Int, attributes: List<Attribute>) {
-        val metadata = Metadataa("${config.metadata.namePrefix}${i}", config.metadata.description, "", i, attributes)
-        val json = moshi.adapter(Metadataa::class.java).toJson(metadata)
+        val metadata = Metadata("${config.metadata.namePrefix}${i}", config.metadata.description, "", i, attributes)
+        val json = moshi.adapter(Metadata::class.java).toJson(metadata)
         PrintStream("${fromPath}/${output}/${i}.json").use { ps -> ps.println(json) }
     }
 

@@ -1,6 +1,6 @@
 import com.squareup.moshi.Json
 
-data class Metadataa(
+data class Metadata(
     val name: String,
     val description: String,
     val image: String,
